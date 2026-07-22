@@ -1,39 +1,3 @@
-const axios = require('axios');
-
-module.exports = {
-  config: {
-    name: "alldl",
-    version: "12.0",
-    author: "xalman",
-    countDown: 3,
-    role: 0,
-    shortDescription: "Ultra Fast Multi-Source Downloader",
-    longDescription: "Download videos using Xalman API with flexible data parsing.",
-    category: "media",
-    guide: "{pn} <link> or just send the link"
-  },
-
-  onStart: async function ({ api, event, args, message }) {
-    const url = args[0];
-    if (!url) return message.reply("⚠️ Please provide a video link!");
-    return await this.handleDownload(url, api, event, message);
-  },
-
-  onChat: async function ({ api, event, message }) {
-    const { body, senderID } = event;
-    if (!body || senderID === api.getCurrentUserID()) return;
-
-    const linkRegEx = /(https?:\/\/[^\s]+)/g;
-    const match = body.match(linkRegEx);
-
-    if (match) {
-      const url = match[0];
-      const sites = ["tiktok.com", "facebook.com", "fb.watch", "instagram.com", "reels", "youtube.com", "youtu.be", "pinterest.com", "pin.it", "twitter.com", "x.com", "capcut.com"];
-      
-      if (sites.some(s => url.includes(s))) {
-        return await this.handleDownload(url, api, event, message);
-      }
-    }
   },
 
   handleDownload: async function (url, api, event, message) {
