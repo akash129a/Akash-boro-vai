@@ -15,7 +15,7 @@ module.exports = {
 	config: {
 		name: "prefix",
 		version: "2.2",
-		author: "xalman",
+		author: global.GoatBot.config.adminName || "আকাশ",
 		countDown: 5,
 		role: 0,
 		description: "Change & show bot prefix ",
@@ -40,10 +40,10 @@ module.exports = {
 
 		const gif = getRandomGif();
 
-	if (args[0] == 'reset') {
-	await threadsData.set(event.threadID, null, "data.prefix");
-	return message.reply(getLang("reset", global.GoatBot.config.prefix));
-	}
+		if (args[0] == 'reset') {
+			await threadsData.set(event.threadID, null, "data.prefix");
+			return message.reply(getLang("reset", global.GoatBot.config.prefix));
+		}
 
 		const newPrefix = args[0];
 		const setGlobal = args[1] === "-g";
@@ -112,19 +112,22 @@ module.exports = {
 		const time = moment().tz("Asia/Dhaka").format("hh:mm A");
 		const date = moment().tz("Asia/Dhaka").format("DD MMM YYYY");
 
-		const owner = global.GoatBot.config.adminName || "Xalman";
+		const owner = global.GoatBot.config.adminName || "আকাশ";
 
 		return message.reply({
 			body:
-`╭━━━〔 🤖 CHATBOT PREFIX 〕━━━╮
-┃ 🏷️ Group : ${groupName}
-┃ 🔰 System : 『 ${systemPrefix} 』
-┃ 💬 Group  : 『 ${groupPrefix} 』
-┃ ⏰ Time   : ${time}
-┃ 📅 Date   : ${date}
-┃ 👑 Owner  : ${owner}
-┃ ⚡ Status : ONLINE
-╰━━━〔 ✨ Powered by Xalman 〕━━━╯`,
+`╔════════════════════════════╗
+║  ⚔️  CHATBOT PREFIX PANEL  ⚔️
+╠════════════════════════════╣
+║ 🏷️  Group: ${groupName}
+║ 🔰 System: ${systemPrefix}
+║ 💬 Prefix: ${groupPrefix}
+║ ⏰ Time: ${time}
+║ 📅 Date: ${date}
+║ 👑 Owner: ${owner}
+║ ⚡ Status: ONLINE ✅
+╚════════════════════════════╝
+     🎮 Powered by ${owner} 🎮`,
 			attachment: await getStreamFromURL(gif)
 		});
 	}
