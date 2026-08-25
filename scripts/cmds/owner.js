@@ -5,7 +5,7 @@ module.exports = {
     name: "owner",
     aliases: ["admininfo", "info", "ownerinfo"],
     version: "3.0",
-    author: "xalman",
+    author: "Akash Chowdhury",
     countDown: 5,
     role: 0,
     shortDescription: { en: "Show owner information" },
@@ -15,15 +15,16 @@ module.exports = {
 
   onStart: async function ({ api, event, message }) {
 
-    const ownerName = "Negative Xalman";
+    const ownerName = "Akash Chowdhury";
     const ownerAge = "18";
-    const fbName = "Maybe NX";
-    const messenger = "https://www.facebook.com/xalman.dev";
-    const whatsapp = "https://wa.me/qr/2SDY4QQTMJR7H1";
-    const telegram = "@Negativexalman";
-    const address = "Narsingdi, Dhaka, Bangladesh";
+    const fbName = "Akash Chowdhury";
+    const messenger = "https://www.facebook.com/akash.chowdhury";
+    const whatsapp = "https://wa.me/qr/YOUR_WHATSAPP_CODE";
+    const telegram = "@AkashChowdhury";
+    const address = "Dhaka";
+    const gmail = "akash@gmail.com";
     const religion = "Islam";
-    const apiServer = "https://xalman-apis.vercel.app";
+    const apiServer = "https://akash-apis.vercel.app";
     const relationship = "Single";
     const videoLink = "https://files.catbox.moe/vd43nx.mp4";
     const timeBD = moment().tz("Asia/Dhaka");
@@ -44,6 +45,7 @@ module.exports = {
 ● Fb Link: ${messenger}
 ● WhatsApp: ${whatsapp}
 ● Telegram: ${telegram}
+● Gmail: ${gmail}
 ● API Server: ${apiServer}
 
 ⏰ 𝗗𝗔𝗧𝗘 & 𝗧𝗜𝗠𝗘 (𝗕𝗗):
